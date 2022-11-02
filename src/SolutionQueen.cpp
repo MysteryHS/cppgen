@@ -46,9 +46,32 @@ SolutionQueen SolutionQueen::operator=(SolutionQueen &&other) {
 }
 
 void SolutionQueen::display() const {
-  cout << "size = " << _size << endl;
-  for (int i = 0; i < _size; i++) {
-    cout << _array[i] << endl;
+  for (int i = 0; i < _size*2+1; i++) {
+    cout << "-";
+  }
+  cout << endl;
+  for(int j=0;j<_size*2;j++){
+    for (int i = 0; i < _size*2; i++) {
+      if(i==0){
+        if(j%2){
+          cout << "-";
+        } else {
+          cout << "|";
+        }
+      }
+      if(j%2){
+        cout << "-";
+      } else if(i%2==1){
+        cout << "|";
+      } else if(_array[j/2]==i/2) {
+        cout << "Q";
+      } else {
+        cout << " ";
+      }
+      if(i==_size*2-1){
+        cout << endl;
+      }
+    }
   }
 }
 
