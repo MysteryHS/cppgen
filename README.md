@@ -15,3 +15,9 @@ cannot take each other.
 Compile : ```$make```  
 Run : ```$./main```  
 Clean : ```$make clean```  
+
+## TODO
+
+Add the possibility to pass argument to the constructor with the initVector function.
+Add the possibility to changes the frequency of mutate / cross.
+Add arguments to the program to pilot it without needing to recompile.
