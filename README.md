@@ -19,5 +19,7 @@ Clean : ```$make clean```
 ## TODO
 
 Add the possibility to pass argument to the constructor with the initVector function.
-Add the possibility to changes the frequency of mutate / cross.
+
+Add the possibility to change the frequency of mutate / cross.
+
 Add arguments to the program to pilot it without needing to recompile.
