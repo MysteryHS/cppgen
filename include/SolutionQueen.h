@@ -1,18 +1,19 @@
 #include "Solution.h"
-#include <stdlib.h>
+
 #include <iostream>
 #include <iterator>
 #include <set>
+#include <stdlib.h>
 
 #ifndef __SOLUTIONQUEEN__
 #define __SOLUTIONQUEEN__
 
-class SolutionQueen : public Solution{
- public:
+class SolutionQueen : public Solution {
+public:
   int *_array;
   int _size;
 
-  SolutionQueen(int size = 5);
+  SolutionQueen(int size = 8);
   SolutionQueen(const SolutionQueen &sol);
   ~SolutionQueen();
   void display() const;

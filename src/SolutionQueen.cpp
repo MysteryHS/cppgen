@@ -1,9 +1,9 @@
 #include "SolutionQueen.h"
+
 #include <cstdlib>
 #include <cstring>
 #include <iostream>
 #include <set>
-
 
 using namespace std;
 
@@ -29,7 +29,7 @@ SolutionQueen::SolutionQueen(const SolutionQueen &sol) {
   memcpy(_array, sol._array, sizeof(int) * _size);
 }
 
-SolutionQueen SolutionQueen::operator=(const SolutionQueen &sol){
+SolutionQueen SolutionQueen::operator=(const SolutionQueen &sol) {
   delete[] _array;
   _size = sol._size;
   _array = new int[_size];
@@ -46,29 +46,29 @@ SolutionQueen SolutionQueen::operator=(SolutionQueen &&other) {
 }
 
 void SolutionQueen::display() const {
-  for (int i = 0; i < _size*2+1; i++) {
+  for (int i = 0; i < _size * 2 + 1; i++) {
     cout << "-";
   }
   cout << endl;
-  for(int j=0;j<_size*2;j++){
-    for (int i = 0; i < _size*2; i++) {
-      if(i==0){
-        if(j%2){
+  for (int j = 0; j < _size * 2; j++) {
+    for (int i = 0; i < _size * 2; i++) {
+      if (i == 0) {
+        if (j % 2) {
           cout << "-";
         } else {
           cout << "|";
         }
       }
-      if(j%2){
+      if (j % 2) {
         cout << "-";
-      } else if(i%2==1){
+      } else if (i % 2 == 1) {
         cout << "|";
-      } else if(_array[j/2]==i/2) {
+      } else if (_array[j / 2] == i / 2) {
         cout << "Q";
       } else {
         cout << " ";
       }
-      if(i==_size*2-1){
+      if (i == _size * 2 - 1) {
         cout << endl;
       }
     }
@@ -100,8 +100,8 @@ int SolutionQueen::evaluate() const {
 }
 
 SolutionQueen *SolutionQueen::cross(const Solution &other) const {
-  const SolutionQueen *sol = dynamic_cast<const SolutionQueen*>(&other);
-  if(sol == nullptr || sol->_size != _size){
+  const SolutionQueen *sol = dynamic_cast<const SolutionQueen *>(&other);
+  if (sol == nullptr || sol->_size != _size) {
     throw "Argument is not valid (either wrong class or wrong array size)";
   }
   SolutionQueen *crossed = new SolutionQueen(_size);
@@ -113,7 +113,7 @@ SolutionQueen *SolutionQueen::cross(const Solution &other) const {
 
 SolutionQueen *SolutionQueen::mutate() const {
   SolutionQueen *res = new SolutionQueen(_size);
-  memcpy(res->_array, _array, sizeof(int)*_size);
+  memcpy(res->_array, _array, sizeof(int) * _size);
   int index = rand() % _size;
   res->_array[index] = ((res->_array[index]) + (rand() % 2 ? 1 : -1) + _size) % _size;
   return res;
