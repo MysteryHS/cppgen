@@ -4,7 +4,7 @@ SRC_PATH = ./src
 DEP_PATH = ./include
 LIB_PATH = ./lib
 OBJ_PATH = ./obj
-OPTI = 0
+OPTI = 2
 DEBUG =
 SYNTAX = -pedantic -std=c++2a -fconcepts
 WARNINGS = -Wall -Wextra
@@ -17,7 +17,7 @@ LDFLAGS = $(LIBRARIES) $(DEBUG)
 
 .PHONY = all clean distclean
 
-all : distclean $(EXEC_EXE)
+all : $(EXEC_EXE)
 
 $(EXEC_EXE) : $(OBJS)
 	$(CXX) -o $@ $^ $(LDFLAGS)

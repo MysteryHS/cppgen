@@ -105,8 +105,11 @@ SolutionQueen *SolutionQueen::cross(const Solution &other) const {
     throw "Argument is not valid (either wrong class or wrong array size)";
   }
   SolutionQueen *crossed = new SolutionQueen(_size);
-  for (int i = 0; i < _size; i++) {
-    crossed->_array[i] = rand() % 2 ? sol->_array[i] : _array[i];
+  for (int i = 0; i < _size / 2; i++) {
+    crossed->_array[i] = _array[i];
+  }
+  for (int i = 0; i < _size / 2; i++) {
+    crossed->_array[i + _size / 2] = sol->_array[i];
   }
   return crossed;
 }

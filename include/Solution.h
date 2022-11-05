@@ -54,12 +54,12 @@ void tournament(std::vector<T> &listSolutions) {
 }
 
 template <Sol T>
-void iterate(std::vector<T> &currentSol, const int nbOfIterations) {
+void iterate(std::vector<T> &currentSol, const int nbOfIterations, int mutatePercentage) {
   for (int ite = 0; ite < nbOfIterations; ite++) {
     tournament(currentSol);
     int newSize = currentSol.size();
     for (int i = 0; i < newSize; i++) {
-      if (rand() % 100 > 16) {
+      if (rand() % 100 > mutatePercentage) {
         int firstIndex = rand() % newSize;
         int secondIndex = rand() % newSize;
         T first = currentSol.at(firstIndex);

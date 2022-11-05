@@ -13,13 +13,9 @@ cannot take each other.
 ## Usage
 
 Compile : ```$make```  
-Run : ```$./main```  
+Run : ```$./main sizeOfSet nbOfIterations ratioMutate```  
 Clean : ```$make clean```  
 
 ## TODO
 
 Add the possibility to pass argument to the constructor with the initVector function.
-
-Add the possibility to change the frequency of mutate / cross.
-
-Add arguments to the program to pilot it without needing to recompile.
