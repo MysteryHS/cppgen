@@ -16,10 +16,8 @@ public:
 };
 
 template <typename T>
-concept Sol = requires(T t, T other) {
-  t->evaluate();
-  t->cross(*other);
-  t->mutate();
+concept Sol = requires(T t) {
+  dynamic_cast<Solution *>(t);
 };
 
 template <Sol T>
