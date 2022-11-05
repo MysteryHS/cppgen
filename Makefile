@@ -6,9 +6,9 @@ LIB_PATH = ./lib
 OBJ_PATH = ./obj
 OPTI = 0
 DEBUG =
-SYNTAX = -pedantic -std=c++11
+SYNTAX = -pedantic -std=c++2a -fconcepts
 WARNINGS = -Wall -Wextra
-LIBRARIES =
+LIBRARIES = 
 OBJS = $(OBJ_PATH)/main.o $(OBJ_PATH)/SolutionQueen.o
 
 CXX = g++

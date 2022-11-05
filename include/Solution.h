@@ -16,6 +16,13 @@ public:
 };
 
 template <typename T>
+concept Sol = requires(T t, T other) {
+  t->evaluate();
+  t->cross(*other);
+  t->mutate();
+};
+
+template <Sol T>
 void removeList(std::vector<T> &vect, std::set<int> indexSet) {
   std::set<int>::reverse_iterator rit;
   for (rit = indexSet.rbegin(); rit != indexSet.rend(); rit++) {
@@ -24,7 +31,7 @@ void removeList(std::vector<T> &vect, std::set<int> indexSet) {
   }
 }
 
-template <typename T>
+template <Sol T>
 void displayVector(std::vector<T> *list) {
   for (T &element : *list) {
     std::cout << element->evaluate() << ", ";
@@ -32,7 +39,7 @@ void displayVector(std::vector<T> *list) {
   std::cout << std::endl;
 }
 
-template <typename T>
+template <Sol T>
 void tournament(std::vector<T> &listSolutions) {
   int size = listSolutions.size();
   std::set<int> indexSet;
@@ -48,7 +55,7 @@ void tournament(std::vector<T> &listSolutions) {
   removeList(listSolutions, indexSet);
 }
 
-template <typename T>
+template <Sol T>
 void iterate(std::vector<T> &currentSol, const int nbOfIterations) {
   for (int ite = 0; ite < nbOfIterations; ite++) {
     tournament(currentSol);
@@ -67,7 +74,7 @@ void iterate(std::vector<T> &currentSol, const int nbOfIterations) {
   }
 }
 
-template <typename T>
+template <Sol T>
 int getBestSol(const std::vector<T> &currentSol) {
   int bestIndex = 0;
   int bestEvaluation = currentSol.at(0)->evaluate();
@@ -91,7 +98,7 @@ std::vector<T *> initVector(const int size) {
   return vect;
 }
 
-template <typename T>
+template <Sol T>
 void destroyVector(std::vector<T> &vect) {
   for (int i = 0; i < (int)vect.size(); i++) {
     delete vect.at(i);
